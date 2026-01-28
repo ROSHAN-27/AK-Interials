@@ -1,0 +1,130 @@
+/* About.css */
+.about-page {
+    background-color: var(--bg-primary);
+}
+
+.about-hero {
+    background-color: var(--bg-secondary);
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.about-content {
+    padding: 4rem 0;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+}
+
+.about-img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.stats-section {
+    background-color: var(--text-primary);
+    color: #fff;
+    padding: 4rem 0;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: center;
+    gap: 2rem;
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--accent-gold);
+    display: block;
+}
+
+.stat-label {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.team-section {
+    padding: 5rem 0;
+    text-align: center;
+}
+
+.proprietor-section {
+    padding: 5rem 0;
+    background-color: var(--bg-secondary);
+}
+
+.proprietor-container {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.proprietor-img-col {
+    flex: 1;
+}
+
+.proprietor-img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 20px 20px 0 var(--accent-gold);
+    object-fit: cover;
+    aspect-ratio: 3/4;
+}
+
+.proprietor-info {
+    flex: 1.5;
+}
+
+.proprietor-title {
+    color: var(--accent-gold);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.proprietor-name {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    font-family: var(--font-heading);
+}
+
+.signature {
+    font-family: 'cursive';
+    font-size: 1.5rem;
+    color: var(--accent-gold);
+    margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}

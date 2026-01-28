@@ -1,0 +1,124 @@
+:root {
+  /* Colors */
+  --bg-primary: #f9f9f7; /* Soft Off-White/Cream */
+  --bg-secondary: #ffffff;
+  --text-primary: #2c2c2c; /* Charcoal for text */
+  --text-secondary: #5a5a5a;
+  --accent-gold: #c5a47e; /* Muted Gold/Brass */
+  --accent-wood: #5d4037; /* Dark Wood */
+  --section-bg: #f4f1ea; /* Light Beige for sections */
+  
+  /* Typography */
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+
+  /* Spacing */
+  --spacing-container: 1200px;
+  --spacing-section: 4rem;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: var(--font-body);
+}
+
+ul {
+  list-style: none;
+}
+
+/* Utilities */
+.container {
+  max-width: var(--spacing-container);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section {
+  padding: var(--spacing-section) 0;
+}
+
+.text-gold {
+  color: var(--accent-gold);
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  border-radius: 4px; /* Slightly rounded */
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--accent-gold);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #b08d65;
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  border: 1px solid var(--text-primary);
+  background: transparent;
+  color: var(--text-primary);
+}
+
+.btn-outline:hover {
+  background: var(--text-primary);
+  color: #fff;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent-gold);
+  border-radius: 4px;
+}
