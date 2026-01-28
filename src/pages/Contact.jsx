@@ -1,33 +1,46 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt, FaWhatsapp } from 'react-icons/fa';
-import emailjs from '@emailjs/browser';
 import './Contact.css';
 
 const Contact = () => {
-    const form = useRef();
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [result, setResult] = useState("");
 
-    // Placeholder keys - User needs to replace these in their EmailJS account
-    const SERVICE_ID = 'service_xxxxxx'; // Replace with actual Service ID
-    const TEMPLATE_ID = 'template_xxxxxx'; // Replace with actual Template ID
-    const PUBLIC_KEY = 'your_public_key'; // Replace with actual Public Key
+    // YOUR ACCESS KEY - User needs to replace this one value
+    const ACCESS_KEY = "3e6b09f0-581b-4df2-a6f0-54802a1ab42a";
 
-    const sendEmail = (e) => {
-        e.preventDefault();
+    const onSubmit = async (event) => {
+        event.preventDefault();
         setIsSubmitting(true);
+        setResult("Sending....");
 
-        emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
-            .then((result) => {
-                console.log(result.text);
-                alert('Thank you for contacting us! We will get back to you shortly.');
-                form.current.reset();
-            }, (error) => {
-                console.log(error.text);
-                alert('Failed to send message. Please try again later.');
-            })
-            .finally(() => {
-                setIsSubmitting(false);
+        const formData = new FormData(event.target);
+        formData.append("access_key", ACCESS_KEY);
+
+        try {
+            const response = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                body: formData
             });
+
+            const data = await response.json();
+
+            if (data.success) {
+                setResult("Form Submitted Successfully");
+                alert("Thank you! Your message has been sent.");
+                event.target.reset();
+            } else {
+                console.log("Error", data);
+                setResult(data.message);
+                alert("Error: " + data.message);
+            }
+        } catch (error) {
+            console.log("Error", error);
+            setResult("Network error. Please try again.");
+            alert("Network error. Please try again later.");
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -84,13 +97,13 @@ const Contact = () => {
                     <div className="contact-form-col">
                         <div className="contact-form-container">
                             <h2>Send a Message</h2>
-                            <form ref={form} onSubmit={sendEmail}>
+                            <form onSubmit={onSubmit}>
                                 <div className="form-group">
                                     <label htmlFor="name">Your Name</label>
                                     <input
                                         type="text"
                                         id="name"
-                                        name="user_name"
+                                        name="name"
                                         className="form-control"
                                         required
                                     />
@@ -100,7 +113,7 @@ const Contact = () => {
                                     <input
                                         type="email"
                                         id="email"
-                                        name="user_email"
+                                        name="email"
                                         className="form-control"
                                         required
                                     />
@@ -110,7 +123,7 @@ const Contact = () => {
                                     <input
                                         type="tel"
                                         id="phone"
-                                        name="user_phone"
+                                        name="phone"
                                         className="form-control"
                                     />
                                 </div>
@@ -132,6 +145,7 @@ const Contact = () => {
                                 >
                                     {isSubmitting ? 'Sending...' : 'Send Message'}
                                 </button>
+                                {result && <p style={{ marginTop: '10px', textAlign: 'center' }}>{result}</p>}
                             </form>
                         </div>
                     </div>
