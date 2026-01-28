@@ -66,7 +66,7 @@ const Footer = () => {
             <div className="footer-bottom">
                 <div className="container">
                     <p>&copy; {new Date().getFullYear()} AK Interials. All Rights Reserved.</p>
-                    <p>Developed by <a href="https://roshan27.github.io/">Roshan</a></p>
+                    <p>Developed by <a href="https://roshan27.github.io/"> Pathan Roshan Zameer</a></p>
                 </div>
             </div>
         </footer>
