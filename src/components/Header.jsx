@@ -18,7 +18,8 @@ const Header = () => {
         <header className="header">
             <div className="container header-container">
                 <Link to="/" className="logo" onClick={closeMenu}>
-                    AK <span className="logo-accent">Interials</span>
+                    <img src="/logo.png" alt="AK Logo" className="logo-img" />
+                    <span className="logo-text">AK <span className="logo-accent">Interials</span></span>
                 </Link>
 
                 <div className="menu-icon" onClick={toggleMenu}>

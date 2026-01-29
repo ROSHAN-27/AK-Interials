@@ -18,11 +18,25 @@
 }
 
 .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
     font-family: var(--font-heading);
     font-size: 1.8rem;
     font-weight: 700;
     color: var(--text-primary);
     letter-spacing: -0.5px;
+}
+
+.logo-img {
+    height: 45px;
+    width: auto;
+    border-radius: 50%;
+}
+
+.logo-text {
+    display: flex;
+    align-items: center;
 }
 
 .logo-accent {
