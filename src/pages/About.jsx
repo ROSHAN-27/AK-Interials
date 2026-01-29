@@ -35,8 +35,8 @@ const About = () => {
                     <div className="proprietor-container">
                         <div className="proprietor-img-col">
                             <img
-                                src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                                alt="Arjun Kumar - Proprietor"
+                                src=""
+                                alt="Syed Khan - Proprietor"
                                 className="proprietor-img"
                             />
                         </div>
